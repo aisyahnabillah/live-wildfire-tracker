@@ -3,9 +3,6 @@
 Prototipe web untuk memantau titik api kebakaran hutan Indonesia, dibangun dari rancangan Figma Modul 5 dan struktur HTML semantik Modul 6. Proyek ini bagian dari **VINIX Batch 5 — Modul 7: Transformasi Desain Figma ke Prototipe Web Interaktif**.
 
 - **Repositori:** https://github.com/aisyahnabillah/live-wildfire-tracker
-- **Demo (opsional):** `[ISI: URL GitHub Pages bila diaktifkan]`
-- **Figma Modul 5 (desain hi-fi):** https://www.figma.com/design/3lHNfBfneuMaeOYvDXB9A8
-- **Figma Modul 4 (wireframe):** https://www.figma.com/design/8UF4vOJ2qEslm11hNTrVNw/Live-Wildfire-Tracker---Wireframes
 - **PRD:** [`docs/PRD-Live-Wildfire-Tracker.pdf`](docs/PRD-Live-Wildfire-Tracker.pdf)
 
 ## Teknologi
@@ -90,8 +87,6 @@ docs/                 # PRD (PDF)
 | Nama | Peran | Kontribusi |
 |------|-------|------------|
 | Aisyah Nabillah | Pengerjaan individu | PRD, wireframe (Modul 4), desain Figma (Modul 5), HTML semantik (Modul 6), implementasi prototipe dan dokumentasi (Modul 7) |
-
-> Jika dikerjakan berkelompok, tambahkan baris anggota lain beserta bagian yang mereka kerjakan.
 
 ## Log prompt AI
 
