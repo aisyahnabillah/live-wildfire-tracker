@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" width="40" height="40" role="img" aria-labelledby="iconMapTitle">
+  <title id="iconMapTitle">Ikon peta interaktif</title>
+  <rect x="2" y="2" width="44" height="44" rx="8" fill="#FFF4ED"/>
+  <path d="M10 14l9-4 9 4 9-4v24l-9 4-9-4-9 4z" fill="none" stroke="#C7420A" stroke-width="2" stroke-linejoin="round"/>
+  <path d="M19 10v24M28 14v24" stroke="#C7420A" stroke-width="2"/>
+  <circle cx="24" cy="22" r="3" fill="#C7420A"/>
+</svg>

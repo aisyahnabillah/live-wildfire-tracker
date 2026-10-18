@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 400" width="600" height="400" role="img" aria-labelledby="petaTitle petaDesc">
+  <title id="petaTitle">Ilustrasi peta sebaran titik api</title>
+  <desc id="petaDesc">Ilustrasi skematis peta Kalimantan dengan lima penanda titik api berwarna sesuai tingkat keyakinan deteksi. Bukan tangkapan layar data langsung.</desc>
+  <rect x="0" y="0" width="600" height="400" fill="#F2F2F3"/>
+  <path d="M60 300 C40 220 90 150 170 120 C230 95 300 100 360 90 C430 80 500 110 530 170 C555 215 540 270 490 300 C430 335 360 310 300 320 C220 335 100 350 60 300 Z"
+        fill="#E4E4E6" stroke="#CBCCD0" stroke-width="2"/>
+  <circle cx="190" cy="190" r="7" fill="#DC2626"/>
+  <circle cx="260" cy="150" r="6" fill="#DC2626"/>
+  <circle cx="330" cy="200" r="5" fill="#E8590C"/>
+  <circle cx="400" cy="160" r="5" fill="#16A34A"/>
+  <circle cx="230" cy="250" r="4" fill="#16A34A"/>
+  <text x="300" y="380" font-family="sans-serif" font-size="14" fill="#4A4E54" text-anchor="middle">Ilustrasi skematis — bukan data langsung</text>
+</svg>

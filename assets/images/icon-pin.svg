@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" width="40" height="40" role="img" aria-labelledby="iconPinTitle">
+  <title id="iconPinTitle">Ikon detail titik api</title>
+  <rect x="2" y="2" width="44" height="44" rx="8" fill="#FFF4ED"/>
+  <path d="M24 10c6 0 10 4.5 10 10 0 7-10 18-10 18s-10-11-10-18c0-5.5 4-10 10-10z" fill="#C7420A"/>
+  <circle cx="24" cy="20" r="4" fill="#FFF4ED"/>
+</svg>
