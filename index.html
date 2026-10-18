@@ -7,6 +7,7 @@
 <meta name="description" content="Pantau titik api kebakaran hutan Indonesia dari data satelit NASA FIRMS.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@600;700&family=Public+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="vendor/leaflet/leaflet.css">
 <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
@@ -65,7 +66,7 @@
         <div id="filter-body">
           <h2>Filter</h2>
           <fieldset><legend>Tanggal</legend><div class="chips" data-group="tgl">
-            <button data-v="1">Hari ini</button><button data-v="1.01">24 jam terakhir</button><button data-v="3">3 hari</button><button data-v="5" class="on">5 hari terakhir</button></div></fieldset>
+            <button data-v="today">Hari ini</button><button data-v="24">24 jam terakhir</button><button data-v="72">3 hari</button><button data-v="120" class="on">5 hari terakhir</button></div></fieldset>
           <fieldset><legend>Tingkat keyakinan</legend><div class="chips" data-group="yakin">
             <button data-v="semua" class="on">Semua</button><button data-v="rendah">Rendah</button><button data-v="sedang">Sedang</button><button data-v="tinggi">Tinggi</button></div></fieldset>
           <label>Wilayah<select id="f-wil"></select></label>
@@ -74,10 +75,10 @@
         </div>
       </aside>
       <div class="mapbox" id="mapbox">
-        <img src="assets/images/peta-hotspot-indonesia.webp" alt="Peta dasar Indonesia" width="1200" height="587">
-        <div id="dots"></div>
+        <div id="map" role="region" aria-label="Peta titik api Indonesia"></div>
         <p class="updating" id="updating" hidden>Memperbarui…</p>
-        <dl class="legend"><dt>Tingkat keyakinan:</dt><dd><i class="c-rendah"></i>Rendah</dd><dd><i class="c-sedang"></i>Sedang</dd><dd><i class="c-tinggi"></i>Tinggi</dd></dl>
+        <p class="loading" id="loading">Memuat data satelit…</p>
+        <dl class="legend"><dt>Warna = keyakinan:</dt><dd><i class="c-rendah"></i>Rendah</dd><dd><i class="c-sedang"></i>Sedang</dd><dd><i class="c-tinggi"></i>Tinggi</dd><dt>Ukuran = FRP</dt></dl>
         <div class="empty" id="empty" hidden>
           <h2>Tidak ada deteksi pada filter ini</h2>
           <p>Longgarkan filter tanggal, tingkat keyakinan, atau FRP untuk melihat titik api.</p>
@@ -85,6 +86,7 @@
         </div>
       </div>
     </div>
+    <p class="source" id="sumber" role="status"></p>
     <aside class="drawer" id="drawer" aria-hidden="true" aria-labelledby="dr-title">
       <div class="dr-head"><h2 id="dr-title">Detail titik api</h2><button class="x" id="dr-close" aria-label="Tutup detail">×</button></div>
       <dl class="detail" id="dr-body"></dl>
@@ -143,8 +145,8 @@
   <!-- TENTANG -->
   <section data-view="tentang" class="narrow">
     <h1>Tentang data</h1>
-    <p class="lead">Data berasal dari NASA FIRMS (satelit VIIRS dan MODIS), diperbarui beberapa kali sehari. Titik api adalah anomali termal, bukan konfirmasi kebakaran.</p>
-    <p><b>FRP</b> (Fire Radiative Power, MW) mengukur energi radiasi api: semakin besar, semakin intens. Dalam prototipe ini data titik api adalah data contoh.</p>
+    <p class="lead">Data berasal dari NASA FIRMS (satelit VIIRS), diperbarui beberapa kali sehari dan mencakup 5 hari terakhir. Titik api adalah anomali termal, bukan konfirmasi kebakaran.</p>
+    <p><b>FRP</b> (Fire Radiative Power, MW) mengukur energi radiasi api: semakin besar, semakin intens. Wilayah ditentukan dari kotak koordinat kasar, bukan batas administratif resmi. Jika layanan data tidak dapat dijangkau, aplikasi menampilkan data contoh dengan label yang jelas.</p>
   </section>
 </main>
 
@@ -157,6 +159,7 @@
 </div>
 <div class="scrim" id="scrim" hidden></div>
 <footer><p>Sumber data: NASA FIRMS (VIIRS/MODIS), data nyaris real-time. © 2026 Live Wildfire Tracker.</p></footer>
+<script src="vendor/leaflet/leaflet.js"></script>
 <script src="js/data.js"></script>
 <script src="js/app.js"></script>
 </body>
