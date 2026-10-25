@@ -9,6 +9,11 @@ const WILAYAH = [
   { id: 'kalbar', nama: 'Kalimantan Barat', bbox: [108.6, -3.1, 114.3, 2.1] },
   { id: 'lain', nama: 'Wilayah lain Indonesia', bbox: null }
 ];
+const FITUR = [
+  { ikon: 'assets/images/icon-map.svg', judul: 'Peta interaktif', isi: 'Lihat sebaran titik api di seluruh Indonesia dalam satu peta.' },
+  { ikon: 'assets/images/icon-filter.svg', judul: 'Filter wilayah & waktu', isi: 'Persempit tampilan berdasarkan tanggal, tingkat keyakinan, dan wilayah.' },
+  { ikon: 'assets/images/icon-pin.svg', judul: 'Info detail titik api', isi: 'Klik satu titik untuk melihat lokasi, waktu deteksi, dan intensitasnya.' }
+];
 const ID_BOUNDS = [[-11.5, 94], [6.5, 141.5]];
 
 function regionOf(lat, lon) {
