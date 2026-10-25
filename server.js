@@ -5,15 +5,18 @@ try { // muat .env sederhana
     const m = l.match(/^\s*([A-Z_]+)\s*=\s*(.*?)\s*$/); if (m && !process.env[m[1]]) process.env[m[1]] = m[2];
   });
 } catch (_) { /* .env opsional */ }
-const firms = require('./api/firms.js');
+const firms = require('./api/firms.js'), langganan = require('./api/langganan.js');
 const TIPE = { '.html': 'text/html; charset=utf-8', '.css': 'text/css', '.js': 'text/javascript', '.svg': 'image/svg+xml', '.webp': 'image/webp', '.png': 'image/png', '.json': 'application/json' };
 http.createServer((req, res) => {
   const url = req.url.split('?')[0];
-  if (url === '/api/firms') {
+  if (url === '/api/firms' || url === '/api/langganan') {
     res.status = c => { res.statusCode = c; return res; };
     res.send = b => res.end(b);
     res.json = o => { res.setHeader('Content-Type', 'application/json'); res.end(JSON.stringify(o)); };
-    return firms(req, res);
+    req.query = Object.fromEntries(new URL(req.url, 'http://x').searchParams);
+    const h = url === '/api/firms' ? firms : langganan; let buf = '';
+    req.on('data', c => { buf += c; if (buf.length > 10000) req.destroy(); });
+    return req.on('end', () => { try { req.body = buf ? JSON.parse(buf) : {}; } catch (_) { req.body = {}; } h(req, res); });
   }
   const f = path.join(__dirname, path.normalize(url === '/' ? '/index.html' : url).replace(/^(\.\.[\/\\])+/, ''));
   if (!f.startsWith(__dirname) || /[\\/]\.(env|git)/.test(f)) { res.statusCode = 404; return res.end('Not found'); }
